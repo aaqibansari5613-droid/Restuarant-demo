@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swaad Restaurant | स्वाद रेस्टोरेंट</title>
+<meta name="description" content="घर जैसा स्वाद, ताज़ा खाना। मेन्यू देखें और WhatsApp पर ऑर्डर करें।">
+<style>
+  :root{
+    --red:#d9480f;
+    --red-dark:#a63508;
+    --cream:#fff4e6;
+    --gold:#f08c00;
+    --text:#2b2b2b;
+    --muted:#6b6b6b;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.6;
+    padding-bottom:90px;
+  }
+  .container{max-width:1000px;margin:0 auto;padding:0 20px}
+  section{padding:56px 0}
+  h1,h2,h3{line-height:1.25}
+  h2{font-size:1.7rem;text-align:center;margin-bottom:8px;color:var(--red-dark)}
+  .sub{text-align:center;color:var(--muted);margin-bottom:32px}
+
+  header{
+    position:sticky;top:0;z-index:10;background:var(--white);
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+  }
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:1000px;margin:0 auto}
+  .logo{font-weight:700;font-size:1.2rem;color:var(--red)}
+  .nav a.btn-small{
+    background:var(--red);color:#fff;text-decoration:none;
+    padding:8px 16px;border-radius:999px;font-size:.9rem;font-weight:600
+  }
+
+  .hero{
+    background:linear-gradient(135deg,#ffe8cc 0%,#fff4e6 55%,#fff9db 100%);
+    text-align:center;padding:72px 0 64px;
+  }
+  .hero .tag{
+    display:inline-block;background:var(--white);color:var(--red);
+    padding:6px 14px;border-radius:999px;font-size:.85rem;font-weight:600;
+    margin-bottom:18px;box-shadow:0 2px 8px rgba(217,72,15,.15)
+  }
+  .hero h1{font-size:2rem;margin-bottom:14px}
+  .hero h1 span{color:var(--red)}
+  .hero p{color:var(--muted);max-width:520px;margin:0 auto 26px}
+  .btn{
+    display:inline-block;background:var(--red);color:#fff;text-decoration:none;
+    padding:14px 28px;border-radius:999px;font-weight:600;
+    box-shadow:0 6px 16px rgba(217,72,15,.3);
+  }
+  .btn.outline{background:transparent;color:var(--red);border:2px solid var(--red);box-shadow:none;margin-left:8px}
+
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:-30px;position:relative}
+  .feat{
+    background:var(--white);border-radius:14px;padding:18px;text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);font-weight:600;
+  }
+  .feat span{display:block;font-size:1.8rem;margin-bottom:4px}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .menu-box{
+    background:var(--white);border:1px solid #ffd8a8;border-radius:16px;
+    padding:22px 20px;box-shadow:0 4px 14px rgba(0,0,0,.04);
+  }
+  .menu-box h3{color:var(--red);margin-bottom:12px;font-size:1.15rem}
+  .item{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed #ffd8a8}
+  .item:last-child{border-bottom:none}
+  .item small{display:block;color:var(--muted);font-size:.8rem}
+  .item .p{color:var(--red);font-weight:700;white-space:nowrap}
+
+  .special{background:var(--cream);text-align:center}
+  .special .box{
+    max-width:520px;margin:0 auto;background:var(--white);
+    border:2px dashed var(--gold);border-radius:18px;padding:26px 20px;
+  }
+  .special .box h3{color:var(--red-dark);font-size:1.3rem;margin-bottom:6px}
+  .special .big{font-size:2rem;font-weight:800;color:var(--red);margin:8px 0}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .review{
+    background:var(--white);border-left:4px solid var(--red);
+    padding:18px 20px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.05);
+  }
+  .review .stars{color:var(--gold);margin-bottom:6px}
+  .review .who{margin-top:8px;font-weight:600;font-size:.9rem}
+
+  .contact{background:var(--cream);text-align:center}
+  .info{max-width:480px;margin:0 auto 24px;text-align:left;background:var(--white);padding:20px;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .info p{padding:6px 0}
+
+  footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 20px}
+
+  .wa{
+    position:fixed;right:16px;bottom:16px;z-index:20;
+    background:#25d366;color:#fff;text-decoration:none;font-weight:700;
+    padding:14px 20px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+
+  @media (max-width:480px){
+    .hero h1{font-size:1.6rem}
+    .btn.outline{margin:10px 0 0 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">🍛 Swaad Restaurant</div>
+    <a class="btn-small" href="https://wa.me/919667650261?text=नमस्ते,%20मुझे%20ऑर्डर%20करना%20है" target="_blank" rel="noopener">ऑर्डर करें</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="tag">🔥 ताज़ा और गरमागरम</span>
+    <h1>घर जैसा <span>स्वाद</span>, हर निवाले में</h1>
+    <p>ताज़ा सामग्री, शुद्ध मसाले और प्यार से बना खाना। डाइन-इन, टेकअवे और होम डिलीवरी उपलब्ध।</p>
+    <a class="btn" href="https://wa.me/919667650261?text=नमस्ते,%20मुझे%20ऑर्डर%20करना%20है" target="_blank" rel="noopener">WhatsApp पर ऑर्डर करें</a>
+    <a class="btn outline" href="#menu">मेन्यू देखें</a>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="features">
+      <div class="feat"><span>🥗</span>ताज़ा खाना</div>
+      <div class="feat"><span>🛵</span>होम डिलीवरी</div>
+      <div class="feat"><span>🧼</span>साफ़-सफ़ाई</div>
+      <div class="feat"><span>💰</span>किफ़ायती दाम</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <h2>हमारा मेन्यू</h2>
+    <p class="sub">सैंपल रेट। असली रेट रेस्टोरेंट के हिसाब से बदले जाएँगे।</p>
+    <div class="menu-grid">
+      <div class="menu-box">
+        <h3>🍛 मेन कोर्स</h3>
+        <div class="item"><div>दाल तड़का<small>घी और लहसुन का तड़का</small></div><div class="p">₹120</div></div>
+        <div class="item"><div>पनीर बटर मसाला<small>क्रीमी और मसालेदार</small></div><div class="p">₹220</div></div>
+        <div class="item"><div>मिक्स वेज<small>ताज़ी सब्ज़ियाँ</small></div><div class="p">₹160</div></div>
+        <div class="item"><div>वेज बिरयानी<small>रायते के साथ</small></div><div class="p">₹180</div></div>
+      </div>
+      <div class="menu-box">
+        <h3>🫓 रोटी और चावल</h3>
+        <div class="item"><div>तंदूरी रोटी</div><div class="p">₹15</div></div>
+        <div class="item"><div>बटर नान</div><div class="p">₹40</div></div>
+        <div class="item"><div>जीरा राइस</div><div class="p">₹90</div></div>
+        <div class="item"><div>प्लेन पराठा</div><div class="p">₹30</div></div>
+      </div>
+      <div class="menu-box">
+        <h3>🥟 स्नैक्स</h3>
+        <div class="item"><div>समोसा (2 पीस)</div><div class="p">₹30</div></div>
+        <div class="item"><div>पनीर टिक्का</div><div class="p">₹180</div></div>
+        <div class="item"><div>वेज मोमोज़</div><div class="p">₹80</div></div>
+        <div class="item"><div>फ्रेंच फ्राइज़</div><div class="p">₹90</div></div>
+      </div>
+      <div class="menu-box">
+        <h3>🥤 ड्रिंक्स और मीठा</h3>
+        <div class="item"><div>मसाला चाय</div><div class="p">₹20</div></div>
+        <div class="item"><div>लस्सी</div><div class="p">₹50</div></div>
+        <div class="item"><div>गुलाब जामुन (2 पीस)</div><div class="p">₹40</div></div>
+        <div class="item"><div>आइसक्रीम</div><div class="p">₹60</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="special">
+  <div class="container">
+    <div class="box">
+      <h3>🎉 आज का स्पेशल थाली</h3>
+      <p>दाल, सब्ज़ी, रोटी, चावल, सलाद और मीठा</p>
+      <div class="big">₹149</div>
+      <a class="btn" href="https://wa.me/919667650261?text=नमस्ते,%20मुझे%20स्पेशल%20थाली%20ऑर्डर%20करनी%20है" target="_blank" rel="noopener">थाली ऑर्डर करें</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>ग्राहकों की राय</h2>
+    <p class="sub">सैंपल रिव्यू (डेमो के लिए)</p>
+    <div class="grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>पनीर बटर मसाला का स्वाद बहुत बढ़िया था। डिलीवरी भी समय पर आई।</p>
+        <div class="who">- सैंपल ग्राहक</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>घर जैसा खाना, कीमत भी सही। परिवार के साथ आना अच्छा लगा।</p>
+        <div class="who">- सैंपल ग्राहक</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>थाली पेट भरकर मिली और जगह साफ़ है। दोबारा आऊँगा।</p>
+        <div class="who">- सैंपल ग्राहक</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>ऑर्डर और बुकिंग</h2>
+    <p class="sub">WhatsApp पर मैसेज करें, हम जल्दी जवाब देंगे</p>
+    <div class="info">
+      <p>📍 <strong>पता:</strong> मेन मार्केट, आपका शहर</p>
+      <p>🕙 <strong>समय:</strong> सुबह 11 बजे से रात 11 बजे तक</p>
+      <p>🛵 <strong>डिलीवरी:</strong> 3 किमी तक उपलब्ध</p>
+    </div>
+    <a class="btn" href="https://wa.me/919667650261?text=नमस्ते,%20मुझे%20ऑर्डर%20करना%20है" target="_blank" rel="noopener">💬 WhatsApp पर ऑर्डर करें</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Swaad Restaurant · रेस्टोरेंट वेबसाइट डेमो
+</footer>
+
+<a class="wa" href="https://wa.me/919667650261?text=नमस्ते,%20मुझे%20ऑर्डर%20करना%20है" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+</body>
+</html>
